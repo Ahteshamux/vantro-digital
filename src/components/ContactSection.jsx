@@ -26,7 +26,7 @@ export default function ContactSection() {
               <h2 className="mt-5 text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-ink md:text-[38px]">
                 {FORM.title}
               </h2>
-              <p className="mt-4 max-w-md text-[16px] leading-relaxed text-warm-grey">{FORM.sub}</p>
+              <p className="mt-4 hidden max-w-md text-[16px] leading-relaxed text-warm-grey md:block">{FORM.sub}</p>
 
               {/* The two offers, made concrete before the form is asked for. */}
               <motion.div
@@ -51,7 +51,7 @@ export default function ContactSection() {
                       </span>
                       <span className="text-[14px] font-bold text-ink">{audit.name}</span>
                     </div>
-                    <p className="mt-2.5 text-[13px] leading-relaxed text-warm-grey">
+                    <p className="mt-2.5 hidden text-[13px] leading-relaxed text-warm-grey md:block">
                       {audit.desc}
                     </p>
                     <ul className="mt-3 space-y-1">
