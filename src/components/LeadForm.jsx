@@ -95,7 +95,7 @@ export default function LeadForm() {
   }
 
   const field =
-    'w-full rounded-xl border border-card-border bg-white px-4 py-3 text-[15px] text-ink placeholder:text-warm-grey-light focus:border-ink/40 focus:outline-none focus:ring-2 focus:ring-lime/50'
+    'w-full rounded-xl border border-card-border bg-white px-4 py-3.5 text-[15px] text-ink placeholder:text-warm-grey-light focus:border-ink/40 focus:outline-none focus:ring-2 focus:ring-lime/50'
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-4">
@@ -108,7 +108,7 @@ export default function LeadForm() {
           {FORM.fields.auditType.options.map((opt) => (
             <label
               key={opt.value}
-              className="group relative flex cursor-pointer items-center justify-center rounded-xl border border-card-border bg-white px-2 py-3 text-center text-[13px] font-medium text-warm-grey transition-colors has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-white hover:border-ink/40"
+              className="group relative flex cursor-pointer items-center justify-center rounded-xl border border-card-border bg-white px-2 py-4 text-center text-[13px] font-medium text-warm-grey transition-colors has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-white hover:border-ink/40"
             >
               <input
                 type="radio"

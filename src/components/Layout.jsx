@@ -27,7 +27,7 @@ export default function Layout() {
         <Navbar />
       </div>
 
-      <main className="bg-cream">
+      <main id="main-content" className="bg-cream">
         <Outlet />
       </main>
 

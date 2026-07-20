@@ -47,7 +47,7 @@ export default function Navbar() {
         scrolled ? 'border-b border-card-border' : 'border-b border-transparent'
       }`}
     >
-      <nav className="container-page flex h-16 items-center justify-between md:h-[72px]">
+      <nav aria-label="Main navigation" className="container-page flex h-16 items-center justify-between md:h-[72px]">
         <Link to="/" aria-label={`${BRAND.name} home`}>
           <Logo name={BRAND.name} />
         </Link>
