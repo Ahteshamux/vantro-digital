@@ -92,7 +92,7 @@ export default function Hero() {
           {HERO.promises.map((p, i) => (
             <li key={p.label} className="flex items-center gap-3">
               {i > 0 && <span className="hidden h-8 w-px bg-card-border sm:block" />}
-              <span className="flex items-center gap-2.5 rounded-2xl border border-card-border bg-white/70 px-4 py-2.5 text-left sm:border-0 sm:bg-transparent sm:px-2 sm:py-0">
+              <span className="flex w-full items-center gap-2.5 rounded-2xl border border-card-border bg-white/70 px-4 py-2.5 text-left sm:w-auto sm:border-0 sm:bg-transparent sm:px-2 sm:py-0">
                 <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-lime/30 text-ink">
                   <Check className="h-3 w-3" />
                 </span>

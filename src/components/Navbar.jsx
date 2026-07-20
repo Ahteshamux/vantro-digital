@@ -149,7 +149,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-[14px] font-semibold text-white hover:bg-black"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-[14px] font-semibold text-white hover:bg-black"
           >
             <span className="hidden sm:inline">{CONVERSION.hardCta}</span>
             <span className="sm:hidden">Book a call</span>
