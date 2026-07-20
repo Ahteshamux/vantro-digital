@@ -114,7 +114,7 @@ export default function InstantResponse() {
                 {INSTANT_RESPONSE.headline}
               </h2>
 
-              <p className="mt-6 max-w-lg text-[15.5px] leading-relaxed text-white/55">
+              <p className="mt-6 hidden max-w-lg text-[15.5px] leading-relaxed text-white/55 md:block">
                 {INSTANT_RESPONSE.body}
               </p>
               <p className="mt-5 max-w-lg border-l-2 border-lime/60 pl-4 text-[15.5px] font-medium leading-relaxed text-white/85">

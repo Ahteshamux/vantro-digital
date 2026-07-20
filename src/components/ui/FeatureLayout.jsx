@@ -23,7 +23,7 @@ export default function FeatureLayout({ tag, title, paragraph, checklist, mockup
           <h3 className="mt-5 text-[28px] font-bold leading-[1.12] tracking-[-0.02em] text-ink md:text-[34px]">
             {title}
           </h3>
-          <p className="mt-4 max-w-md text-[16px] leading-relaxed text-warm-grey">{paragraph}</p>
+          <p className="mt-4 hidden max-w-md text-[16px] leading-relaxed text-warm-grey md:block">{paragraph}</p>
           <Checklist items={checklist} />
         </motion.div>
 
