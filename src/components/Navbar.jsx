@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { Logo, ArrowRight, Plus, Cross, Phone, ChevronDown } from './ui/Icons'
 import { BRAND, NAV, CONVERSION } from '../content/site'
+import { openCalendlyPopup } from '../lib/calendly'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -145,7 +146,13 @@ export default function Navbar() {
 
           <motion.a
             href={CONVERSION.calendlyUrl || '/contact'}
-            {...(CONVERSION.calendlyUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            onClick={(e) => {
+              // Open Calendly as a popup over the page, not a new tab.
+              if (CONVERSION.calendlyUrl) {
+                e.preventDefault()
+                openCalendlyPopup(CONVERSION.calendlyUrl)
+              }
+            }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}

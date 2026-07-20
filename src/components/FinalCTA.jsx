@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 import CTAPair from './ui/CTAPair'
+import CalendlyInline from './CalendlyInline'
 import { scaleIn, viewportOnce } from '../lib/motion'
-import { FINAL_CTA } from '../content/site'
+import { FINAL_CTA, CONVERSION } from '../content/site'
 
 export default function FinalCTA() {
+  const hasCalendly = Boolean(CONVERSION.calendlyUrl)
+
   return (
     <section id="audit" className="py-16 md:py-24">
       <div className="container-page">
@@ -21,9 +24,18 @@ export default function FinalCTA() {
           <p className="mx-auto mt-5 max-w-md text-[16px] leading-relaxed text-ink/60">
             {FINAL_CTA.sub}
           </p>
-          {/* Mirrors the hero's dual CTA — docs 02: the closing band repeats
-              the hero's structure so both visitor types can act. */}
-          <CTAPair tone="onLime" size="lg" className="mt-9" />
+
+          {hasCalendly ? (
+            /* Scheduler embedded open, right in the closing band — a visitor
+               who's ready can pick a time without another click or page. */
+            <CalendlyInline
+              url={CONVERSION.calendlyUrl}
+              className="mx-auto mt-10 max-w-3xl border border-ink/10 shadow-card"
+            />
+          ) : (
+            /* Fallback until the Calendly URL is set: the hero's dual CTA. */
+            <CTAPair tone="onLime" size="lg" className="mt-9" />
+          )}
         </motion.div>
       </div>
     </section>

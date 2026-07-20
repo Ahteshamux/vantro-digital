@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from './Icons'
 import { CONVERSION } from '../../content/site'
 import { EASE } from '../../lib/motion'
+import { openCalendlyPopup } from '../../lib/calendly'
 
 /**
  * The dual-CTA unit (docs 01/02/11): never a single button.
  *
- *   hard / high-intent    → Book a 20-Min Call → Calendly
+ *   hard / high-intent    → Book a call → Calendly popup
  *   soft / low-commitment → Get My Free Audit  → the form
  *
  * Two fallbacks keep every CTA live:
@@ -35,6 +36,18 @@ export default function CTAPair({
     }
   }
 
+  // Hard CTA: open the Calendly popup OVER the page (not a new tab / next
+  // page). Falls back to the form when no URL is set. preventDefault keeps
+  // the href working for right-click / middle-click / no-JS.
+  const onHardCta = (e) => {
+    if (hasCalendly) {
+      e.preventDefault()
+      openCalendlyPopup(CONVERSION.calendlyUrl)
+    } else {
+      goToForm(e)
+    }
+  }
+
   const sizes = {
     md: 'px-6 py-3 text-[14.5px]',
     lg: 'px-7 py-3.5 text-[15px]',
@@ -58,9 +71,7 @@ export default function CTAPair({
     <div className={`flex flex-col items-stretch gap-3 sm:flex-row sm:items-center ${alignment} ${className}`}>
       <motion.a
         href={hasCalendly ? CONVERSION.calendlyUrl : '/contact'}
-        {...(hasCalendly
-          ? { target: '_blank', rel: 'noopener noreferrer' }
-          : { onClick: goToForm })}
+        onClick={onHardCta}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2, ease: EASE }}

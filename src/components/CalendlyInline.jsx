@@ -1,0 +1,43 @@
+import { useEffect, useRef } from 'react'
+import { loadCalendly } from '../lib/calendly'
+
+/**
+ * Inline Calendly scheduler — the full "Select a Date & Time" widget embedded
+ * directly in the page, open and ready (no click required).
+ *
+ * Renders nothing if no URL is passed, so a page that includes it degrades
+ * cleanly while CONVERSION.calendlyUrl is still null.
+ */
+export default function CalendlyInline({ url, className = '' }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (!url || !ref.current) return
+    const el = ref.current
+    let cancelled = false
+
+    loadCalendly()
+      .then((Calendly) => {
+        if (cancelled || !Calendly || !el) return
+        el.innerHTML = '' // guard against a double-init in React strict mode
+        Calendly.initInlineWidget({ url, parentElement: el })
+      })
+      .catch(() => {})
+
+    return () => {
+      cancelled = true
+    }
+  }, [url])
+
+  if (!url) return null
+
+  return (
+    <div
+      ref={ref}
+      // Calendly needs a real height to render the calendar; 660px fits the
+      // month grid + time-zone row without an internal scrollbar on desktop.
+      style={{ minWidth: '320px', height: '660px' }}
+      className={`overflow-hidden rounded-2xl bg-white ${className}`}
+    />
+  )
+}

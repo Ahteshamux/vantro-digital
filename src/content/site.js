@@ -24,7 +24,7 @@ export const FRAMEWORK = 'The Retain System™'
  * Conversion config. Everything the CTAs and form depend on.
  *
  * TODO — REQUIRED BEFORE LAUNCH:
- *   calendlyUrl   — every "Book a 20-Min Call" button points here.
+ *   calendlyUrl   — every "Book a call" button opens this in a popup.
  *                   While null, those buttons fall back to the form instead of
  *                   dead-linking, so no CTA is ever a no-op.
  *   formspreeId   — the form cannot send without it. While null, submitting
@@ -54,7 +54,7 @@ export const CONVERSION = {
   },
 
   // Outcome-specific CTA copy. Never "Submit" / "Learn More" / "Click Here".
-  hardCta: 'Book a 20-Min Call',
+  hardCta: 'Book a 30-Min Call',
   softCta: 'Get My Free Audit',
   workCta: 'See the Build',
 
