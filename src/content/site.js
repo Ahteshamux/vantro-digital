@@ -682,41 +682,15 @@ export const PROOF = {
   tag: 'Proof',
   title: 'Where the work stands today.',
   subtitle:
-    'Two builds with real numbers are above. Here’s the rest of the work, labeled honestly, and an offer for the first client in a vertical we haven’t shipped in yet.',
+    'Real builds with real numbers — and an honest note on where capacity stands right now.',
   /**
-   * Work entries, per docs 05 + 09:
-   *   - numbered (01, 02) — signals a curated list, not a filler grid
-   *   - `title` IS the result, never a vague label
-   *   - 3 stats ABOVE the narrative (numbers before narrative, docs 10 §3)
-   *   - service tags reinforce full range across a thin portfolio
-   *   - every entry carries a checkable external link
-   *
-   * TODO — fill each stat `value`. While a value is null the stat renders a
-   * muted dash, so the layout is intact but nothing is invented. Operational
-   * metrics are fine and expected here — "Live in 12 days", "40% fewer manual
-   * hours", "Zero missed leads" — revenue figures are not required.
-   *
-   * TODO — add `href` for each entry. The docs call the checkable external
-   * link the single strongest signal on this section; while null the card
-   * renders without a link rather than pointing at "#".
+   * Tier-2 "adjacent work" list was removed: the only entry had no real
+   * numbers, so it rendered as a card full of dashes, which read as broken
+   * rather than honest. When there's a real adjacent project WITH a metric,
+   * re-add the render in Proof.jsx and populate this array; until then the
+   * featured case studies above carry the section on their own.
    */
-  items: [
-    {
-      kind: 'Adjacent work',
-      client: 'Early-stage startups',
-      location: 'Upwork client work',
-      title: 'Landing pages and mobile app UI shipped on fixed timelines',
-      desc: 'Landing page and mobile app design for early-stage founders, delivered to a fixed deadline with direct founder collaboration.',
-      stats: [
-        { value: null, label: 'Projects delivered' }, // TODO
-        { value: null, label: 'Avg turnaround' }, // TODO
-        { value: null, label: 'Upwork rating' }, // TODO
-      ],
-      tags: ['Design', 'UI/UX', 'Mobile'],
-      href: null, // TODO
-      grad: 'from-[#A7C08F] to-[#5E7A48]',
-    },
-  ],
+  items: [],
   upwork: {
     // TODO: confirm exact rating and review count before publishing.
     rating: null,
