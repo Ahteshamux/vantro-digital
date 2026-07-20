@@ -85,13 +85,12 @@ export const ArrowDownRight = ({ className = 'w-4 h-4' }) => (
   </svg>
 )
 
-// Wordmark: "V" chevron mark + brand name.
+/**
+ * Brand wordmark — the real "Vantro Digital" lockup (mark + name) supplied
+ * as an SVG. Served from /public, so it's referenced by literal URL rather
+ * than imported (see src/assets/README.md). `className` controls height only;
+ * `w-auto` preserves the ~7.5:1 aspect ratio. `name` becomes the alt text.
+ */
 export const Logo = ({ className = 'h-6', name = 'Vantro Digital' }) => (
-  <span className={`inline-flex items-center gap-2 ${className}`}>
-    <svg viewBox="0 0 28 28" className="h-6 w-6 flex-none" aria-hidden>
-      <rect x="1" y="1" width="26" height="26" rx="8" fill="#161616" />
-      <path d="M8 9.5l6 10 6-10" fill="none" stroke="#D4E84C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-    <span className="text-[19px] font-bold tracking-tight text-ink">{name}</span>
-  </span>
+  <img src="/logo/logo_website_navbar.svg" alt={name} className={`w-auto ${className}`} />
 )
