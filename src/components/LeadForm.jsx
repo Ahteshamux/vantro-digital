@@ -104,11 +104,11 @@ export default function LeadForm() {
         <legend className="mb-1.5 block text-[13.5px] font-semibold text-ink">
           {FORM.fields.auditType.label}
         </legend>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
           {FORM.fields.auditType.options.map((opt) => (
             <label
               key={opt.value}
-              className="group relative flex cursor-pointer items-center justify-center rounded-xl border border-card-border bg-white px-2 py-4 text-center text-[13px] font-medium text-warm-grey transition-colors has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-white hover:border-ink/40"
+              className="group relative flex cursor-pointer items-center justify-center rounded-xl border border-card-border bg-white px-3 py-3.5 text-center text-[13px] font-medium text-warm-grey transition-colors has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-white hover:border-ink/40"
             >
               <input
                 type="radio"

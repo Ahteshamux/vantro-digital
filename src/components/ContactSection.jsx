@@ -67,7 +67,7 @@ export default function ContactSection() {
               </motion.div>
 
               {/* What happens next */}
-              <div className="mt-9">
+              <div className="mt-9 hidden md:block">
                 <h3 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-warm-grey-light">
                   {FORM.whatNext.title}
                 </h3>
@@ -97,7 +97,7 @@ export default function ContactSection() {
               </div>
 
               {/* Objection-handling FAQs at the point of highest hesitation */}
-              <div className="mt-9 space-y-4 border-t border-card-border pt-7">
+              <div className="mt-9 hidden space-y-4 border-t border-card-border pt-7 md:block">
                 {FORM.faqs.map((f) => (
                   <div key={f.q}>
                     <p className="text-[14px] font-semibold text-ink">{f.q}</p>
