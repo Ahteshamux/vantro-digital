@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import { motion } from 'framer-motion'
 import PageHero from '../components/ui/PageHero'
 import { ArrowRight } from '../components/ui/Icons'
@@ -32,8 +33,21 @@ export default function IndexPage({ kind }) {
   const { map, base, page } = CONFIG[kind]
   const entries = Object.entries(map)
 
+  const seoMeta = kind === 'services'
+    ? {
+        title: 'Services — Website Design, SEO, Ads & Automation for Small Business',
+        description: 'Browse Vantro Digital services: website design, local SEO cleanup, Google & Meta ads, lead capture automation, reviews, and rebooking flows.',
+        path: '/services',
+      }
+    : {
+        title: 'Industries — Home Services, Healthcare, Trucking, Real Estate',
+        description: 'Vantro Digital serves home services, dental, trucking, and real estate businesses. Same proven system, adapted for your market.',
+        path: '/industries',
+      }
+
   return (
     <>
+      <SEO {...seoMeta} />
       <PageHero page={page} />
 
       <section className="py-16 md:py-24">

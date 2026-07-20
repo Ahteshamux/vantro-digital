@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import { motion } from 'framer-motion'
 import PageHero from '../components/ui/PageHero'
 import { Check, ArrowRight } from '../components/ui/Icons'
@@ -27,8 +28,18 @@ export default function SubPage({ kind }) {
 
   if (!data) return <Navigate to="/404" replace />
 
+  const basePath = kind === 'services' ? '/services' : '/industries'
+  const pageTitle = Array.isArray(data.title) ? data.title[0] : data.title
+  const seoTitle = `${pageTitle} for Small Business`
+  const seoDescription = data.sub
+
   return (
     <>
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        path={`${basePath}/${slug}`}
+      />
       <PageHero page={data} />
 
       <section className="py-16 md:py-24">

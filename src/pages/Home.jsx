@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 import StatsBand from '../components/StatsBand'
 import ProblemBand from '../components/ProblemBand'
@@ -21,6 +22,11 @@ import { STAGES_INTRO } from '../content/site'
 export default function Home() {
   return (
     <>
+      <SEO
+        title="Website Design, SEO & Marketing for Small Business"
+        description="Vantro Digital helps service businesses build, rank, grow and automate. Website design, local SEO, Google ads, and lead automation — all as one connected system."
+        path="/"
+      />
       <Hero />
       <StatsBand />
       <ProblemBand />

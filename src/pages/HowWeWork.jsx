@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import PageHero from '../components/ui/PageHero'
 import TimelineCard from '../components/ui/TimelineCard'
 import { SectionHeading, Bridge, BridgedHeading } from '../components/ui/Primitives'
@@ -13,6 +14,11 @@ import { PAGES, STAGES_INTRO } from '../content/site'
 export default function HowWeWork() {
   return (
     <>
+      <SEO
+        title="How We Work — 30-Day Build, Rank, Grow Process"
+        description="See exactly how Vantro Digital builds and grows your business in 30 days. Four stages: Build, Rank, Grow, and Automate — all owned by one operator."
+        path="/how-we-work"
+      />
       <PageHero page={PAGES.howWeWork} visual={<TimelineCard />} />
 
       {/* The 30-day mechanics first — this page is about process. */}
