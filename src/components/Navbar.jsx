@@ -4,6 +4,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom'
 import { Logo, ArrowRight, Plus, Cross, Phone, ChevronDown } from './ui/Icons'
 import { BRAND, NAV, CONVERSION } from '../content/site'
 import { openCalendlyPopup } from '../lib/calendly'
+import { useMagnetic } from '../lib/useMagnetic'
 
 // Relative luminance of a CSS rgb/rgba string; <0.5 reads as a dark surface.
 function luminance(rgb) {
@@ -69,6 +70,8 @@ export default function Navbar() {
       document.body.style.overflow = ''
     }
   }, [openMenu])
+
+  const bookMag = useMagnetic()
 
   const isBranchActive = (item) =>
     pathname === item.href || item.children?.some((c) => pathname === c.href)
@@ -182,6 +185,7 @@ export default function Navbar() {
             )}
 
             <motion.a
+              ref={bookMag.ref}
               href={CONVERSION.calendlyUrl || '/contact'}
               onClick={(e) => {
                 if (CONVERSION.calendlyUrl) {
@@ -189,6 +193,9 @@ export default function Navbar() {
                   openCalendlyPopup(CONVERSION.calendlyUrl)
                 }
               }}
+              onMouseMove={bookMag.onMouseMove}
+              onMouseLeave={bookMag.onMouseLeave}
+              style={bookMag.style}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}

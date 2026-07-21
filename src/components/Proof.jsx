@@ -5,6 +5,7 @@ import { ArrowRight, Star } from './ui/Icons'
 import upworkLogo from '../assets/images/upwork-logo.png'
 import { EASE, viewportOnce } from '../lib/motion'
 import CaseStudyCard from './CaseStudyCard'
+import MagneticButton from './ui/MagneticButton'
 import { PROOF, CASE_STUDIES } from '../content/site'
 
 const card = {
@@ -33,14 +34,14 @@ function Scarcity() {
           <p className="mt-1 max-w-xl text-[13.5px] leading-relaxed text-warm-grey">{s.detail}</p>
         </div>
       </div>
-      <a
+      <MagneticButton
         href="/contact"
         onClick={goToForm}
         className="group inline-flex flex-none items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[14px] font-semibold text-white hover:bg-black"
       >
         {s.cta}
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-      </a>
+      </MagneticButton>
     </motion.div>
   )
 }

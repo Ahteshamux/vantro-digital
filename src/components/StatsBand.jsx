@@ -3,6 +3,7 @@ import { useCountUp } from '../hooks/useCountUp'
 import { Star } from './ui/Icons'
 import upworkLogo from '../assets/images/upwork-logo.png'
 import { EASE, viewportOnce } from '../lib/motion'
+import { useMagnetic } from '../lib/useMagnetic'
 import { STATS } from '../content/site'
 
 const rise = {
@@ -112,6 +113,7 @@ function TrustWidget() {
 }
 
 export default function StatsBand() {
+  const ctaMag = useMagnetic()
   return (
     <section className="py-16 md:py-24">
       <div className="container-page">
@@ -133,8 +135,11 @@ export default function StatsBand() {
             </motion.div>
 
             <motion.a
-              variants={rise}
+              ref={ctaMag.ref}
               href={STATS.ctaHref}
+              onMouseMove={ctaMag.onMouseMove}
+              onMouseLeave={ctaMag.onMouseLeave}
+              style={ctaMag.style}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2, ease: EASE }}

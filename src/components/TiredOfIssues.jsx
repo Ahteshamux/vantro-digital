@@ -32,14 +32,15 @@ const clusterV = {
 
 function pillV(rot) {
   return {
-    // Start a little above the resting spot, rotated slightly further.
-    hidden: { opacity: 0, y: -38, rotate: rot + (rot > 90 ? 12 : 9) },
-    // Smooth ~0.5s settle — a soft ease-out curve, not a bouncy spring.
+    // Start well above the resting spot so it reads as falling, not sliding.
+    hidden: { opacity: 0, y: -140, rotate: rot + (rot > 90 ? 14 : 10) },
+    // Gravity-style ease-in-out: accelerates down, decelerates into place.
+    // Not a spring — no bounce, keeping the motion language clean.
     show: {
       opacity: 1,
       y: 0,
       rotate: rot,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.6, ease: [0.5, 0, 0.5, 1] },
     },
     exit: { opacity: 0, transition: { duration: 0.2 } },
   }
@@ -61,7 +62,10 @@ function Pill({ label, slot, className = '', style }) {
 export default function TiredOfIssues() {
   const [tab, setTab] = useState(0)
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-120px' })
+  // once:false → the cluster re-drops every time the section enters view.
+  // amount:0.3 waits until ~a third is on screen before falling, and lets it
+  // reset cleanly once scrolled away so re-entry replays the fall.
+  const inView = useInView(ref, { once: false, amount: 0.3 })
   const seg = ISSUES.segments[tab]
 
   return (

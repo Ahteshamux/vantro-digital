@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useMagnetic } from '../../lib/useMagnetic'
 
 // Eyebrow tag pills (green dot + label) were removed site-wide by request.
 // Kept as a no-op so every call site still compiles; delete the calls later
@@ -7,10 +8,15 @@ export function TagPill() {
   return null
 }
 
-// Solid black pill CTA.
+// Solid black pill CTA — with the site-wide magnetic hover.
 export function ButtonPrimary({ children, className = '', ...props }) {
+  const m = useMagnetic()
   return (
     <motion.button
+      ref={m.ref}
+      style={m.style}
+      onMouseMove={m.onMouseMove}
+      onMouseLeave={m.onMouseLeave}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -22,10 +28,15 @@ export function ButtonPrimary({ children, className = '', ...props }) {
   )
 }
 
-// Outlined pill.
+// Outlined pill — with the site-wide magnetic hover.
 export function ButtonOutline({ children, className = '', ...props }) {
+  const m = useMagnetic()
   return (
     <motion.button
+      ref={m.ref}
+      style={m.style}
+      onMouseMove={m.onMouseMove}
+      onMouseLeave={m.onMouseLeave}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}

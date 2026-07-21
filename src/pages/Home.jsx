@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
+import MagneticButton from '../components/ui/MagneticButton'
 import Hero from '../components/Hero'
 import StatsBand from '../components/StatsBand'
 import ProblemBand from '../components/ProblemBand'
@@ -72,12 +72,13 @@ export default function Home() {
               <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-warm-grey-light">Transparent pricing</p>
               <h2 className="mt-1 text-[22px] font-bold text-ink md:text-[26px]">Simple, project-based packages — no retainer required.</h2>
             </div>
-            <Link
+            <MagneticButton
+              as="link"
               to="/packages"
               className="inline-flex flex-none items-center gap-2 rounded-full bg-ink px-6 py-3 text-[14px] font-semibold text-white hover:bg-black"
             >
               View packages
-            </Link>
+            </MagneticButton>
           </motion.div>
         </div>
       </section>
