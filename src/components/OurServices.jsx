@@ -1,9 +1,24 @@
 import { motion } from 'framer-motion'
-import { IconLaunch, IconPen, IconSearch, IconNodes } from './ui/Icons'
+import {
+  IconLaunch,
+  IconSearch,
+  IconTarget,
+  IconMegaphone,
+  IconStarOutline,
+  IconBolt,
+} from './ui/Icons'
 import { viewportOnce } from '../lib/motion'
 import { SERVICES_GRID } from '../content/site'
 
-const ICONS = { launch: IconLaunch, pen: IconPen, search: IconSearch, nodes: IconNodes }
+// One distinct icon per service — no repeats.
+const ICONS = {
+  launch: IconLaunch, // Website Design & Build
+  target: IconTarget, // Landing Pages & CRO
+  search: IconSearch, // SEO & Local Search
+  megaphone: IconMegaphone, // Google & Meta Ads
+  bolt: IconBolt, // Lead Automation
+  star: IconStarOutline, // Reviews & Reputation
+}
 
 /**
  * The colour strips that fan out behind a card's top edge on hover.

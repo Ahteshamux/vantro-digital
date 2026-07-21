@@ -23,7 +23,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="font-extrabold uppercase leading-[0.86] tracking-[-0.035em] text-ink text-[clamp(2.6rem,8.6vw,8.5rem)]"
+          className="font-extrabold uppercase leading-[0.86] tracking-[-0.035em] text-ink text-[clamp(3.4rem,13vw,8.5rem)]"
         >
           {LINES.map((l, i) => (
             <motion.span

@@ -94,7 +94,9 @@ export default function Navbar() {
         initial={{ y: -12, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className={`pointer-events-auto mx-auto max-w-6xl rounded-full shadow-lift transition-colors duration-300 ${t.pill}`}
+        className={`pointer-events-auto mx-auto max-w-6xl shadow-lift transition-[colors,border-radius] duration-300 ${t.pill} ${
+          openMenu ? 'rounded-3xl' : 'rounded-full'
+        }`}
       >
         <nav aria-label="Main navigation" className="flex h-14 items-center justify-between gap-4 pl-5 pr-3 md:h-16 md:pl-7 md:pr-3">
           <Link to="/" aria-label={`${BRAND.name} home`}>

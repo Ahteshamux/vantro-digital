@@ -140,7 +140,7 @@ export default function LeadForm() {
               <textarea
                 id={id}
                 name={key}
-                rows={4}
+                rows={3}
                 placeholder={cfg.placeholder}
                 aria-invalid={Boolean(errors[key])}
                 aria-describedby={errors[key] ? errId : undefined}

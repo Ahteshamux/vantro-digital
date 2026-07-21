@@ -360,7 +360,7 @@ export const ISSUES = {
     { color: 'lime', rot: -9, left: '19%', top: 266 },
     { color: 'white', rot: 2, left: '10%', top: 366 },
     { color: 'ink', rot: -3, left: '41%', top: 372 },
-    { color: 'limeSoft', rot: 180, left: '70%', top: 360 },
+    { color: 'limeSoft', rot: -5, left: '70%', top: 360 },
   ],
 
   segments: [
@@ -427,11 +427,11 @@ export const SERVICES_GRID = {
   sub: 'Everything a small business needs to get found, convert and follow up — from one operator 🙌',
   cards: [
     { name: 'Website Design & Build', icon: 'launch' },
-    { name: 'Landing Pages & CRO', icon: 'pen' },
+    { name: 'Landing Pages & CRO', icon: 'target' },
     { name: 'SEO & Local Search', icon: 'search' },
-    { name: 'Google & Meta Ads', icon: 'nodes' },
-    { name: 'Lead Automation', icon: 'nodes' },
-    { name: 'Reviews & Reputation', icon: 'search' },
+    { name: 'Google & Meta Ads', icon: 'megaphone' },
+    { name: 'Lead Automation', icon: 'bolt' },
+    { name: 'Reviews & Reputation', icon: 'star' },
   ],
 }
 
@@ -969,6 +969,28 @@ export const FAQS = [
     a: 'You get 30 days of launch support included on the Full System tier, plus documentation of how everything is wired. After that, ongoing automation management is an optional retainer — not a requirement to keep your system running.',
   },
 ]
+
+/**
+ * Two action cards below pricing (book a call / referral).
+ *
+ * TODO: referralUrl — where "Join now" should point once a referral program
+ * exists. While null it routes to the contact form so the button still works.
+ */
+export const ACTION_CARDS = {
+  referralUrl: null,
+  book: {
+    title: 'Book a call',
+    desc: 'Learn how we can grow your business with the right build-and-automate partner.',
+    cta: 'Book a Call',
+    emoji: '📞',
+  },
+  refer: {
+    title: 'Refer a friend & earn',
+    desc: 'Earn 10% monthly recurring commission for every business you send our way.',
+    cta: 'Join now',
+    emoji: '💸',
+  },
+}
 
 export const FINAL_CTA = {
   title: ['Let’s find what’s quietly', 'leaking in your business.'],

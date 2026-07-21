@@ -50,6 +50,41 @@ export const IconLaunch = ({ className = 'w-6 h-6' }) => (
   </svg>
 )
 
+// Landing Pages & CRO — a target/conversion mark, distinct from the pen.
+export const IconTarget = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="12" r="4.5" />
+    <circle cx="12" cy="12" r="0.6" fill="currentColor" />
+  </svg>
+)
+
+// Google & Meta Ads — a megaphone (paid reach), distinct from the nodes.
+export const IconMegaphone = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    {/* Horn: wide mouth on the right, narrow at the pivot on the left */}
+    <path d="M18 5.5 8 10H5a1.5 1.5 0 0 0-1.5 1.5v1A1.5 1.5 0 0 0 5 14h3l10 4.5V5.5Z" />
+    {/* Handle hanging from the base */}
+    <path d="M7.5 14v3a1.5 1.5 0 0 0 3 0v-1.6" />
+    {/* Sound waves */}
+    <path d="M21 10v4" />
+  </svg>
+)
+
+// Reviews & Reputation — a star, distinct from the SEO magnifier.
+export const IconStarOutline = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3.5l2.6 5.3 5.9.86-4.25 4.14 1 5.85L12 17.9l-5.25 2.76 1-5.85L3.5 9.66l5.9-.86L12 3.5Z" />
+  </svg>
+)
+
+// Lead Automation — a lightning bolt (instant/automated), distinct from nodes.
+export const IconBolt = ({ className = 'w-6 h-6' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10.5H13l0-8.5Z" />
+  </svg>
+)
+
 export const Phone = ({ className = 'w-4 h-4' }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />

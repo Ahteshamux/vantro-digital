@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useGoToForm } from '../lib/useGoToForm'
 import { SectionHeading, Bridge, BridgedHeading } from './ui/Primitives'
 import { Check, ArrowRight } from './ui/Icons'
+import MagneticButton from './ui/MagneticButton'
 import { EASE, viewportOnce } from '../lib/motion'
 import { PACKAGES, CONVERSION } from '../content/site'
 
@@ -80,10 +81,8 @@ function Tier({ tier }) {
         ))}
       </ul>
 
-      {/* No own hover state — the card scale carries the feedback. The arrow
-          nudges off the CARD's group-hover so button and card move as one.
-          Button colours deliberately stay constant on hover. */}
-      <a
+      {/* Magnetic hero-style interaction: pulls toward the cursor + scales. */}
+      <MagneticButton
         href="/contact"
         onClick={goToForm}
         className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[14.5px] font-semibold ${
@@ -92,7 +91,7 @@ function Tier({ tier }) {
       >
         {tier.cta}
         <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-out group-hover:translate-x-[3px]" />
-      </a>
+      </MagneticButton>
     </motion.div>
   )
 }
