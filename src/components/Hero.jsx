@@ -1,100 +1,59 @@
 import { motion } from 'framer-motion'
 import CTAPair from './ui/CTAPair'
-import { Check } from './ui/Icons'
 import { EASE } from '../lib/motion'
-import { HERO } from '../content/site'
 
-const container = { show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } } }
-const item = {
-  hidden: { opacity: 0, y: 22 },
+/**
+ * Big-statement hero: full lime ground, giant black promise filling the view.
+ * Simple and confident — the headline is the whole pitch. (The floating navbar
+ * samples this lime and auto-flips to a black pill, so it contrasts cleanly.)
+ */
+const LINES = ['Get found.', 'Get booked.', 'Stay booked.']
+
+const container = { show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } } }
+const line = {
+  hidden: { opacity: 0, y: '40%' },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+}
+const fade = {
+  hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 }
 
-/**
- * Dark, interactive hero.
- *
- * The four-pillar headline (Build. Rank. Grow. Automate.) is split into
- * individually hoverable words — each springs up and brightens on hover, so
- * the promise the whole business is built on literally reacts to the visitor.
- * Ink background + lime headline are the site's own tokens; a slow lime glow
- * behind the type keeps the section alive even before anyone interacts.
- */
 export default function Hero() {
-  const words = HERO.headline[0].split(' ') // "Build." "Rank." "Grow." "Automate."
-
   return (
-    <section className="relative overflow-hidden bg-ink pb-20 pt-28 md:pb-28 md:pt-32">
-      {/* Ambient lime glow — breathes slowly so the hero is never fully static. */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-44 left-1/2 h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-lime/20 blur-[130px]"
-        animate={{ opacity: [0.45, 0.75, 0.45], scale: [1, 1.08, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      {/* Faint dot grid for texture. */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:24px_24px]" />
-
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={container}
-        className="container-page relative z-10 flex flex-col items-center text-center"
-      >
+    <section className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden bg-lime pb-14 pt-28 md:pt-32">
+      <div className="container-page">
         <motion.h1
-          variants={item}
-          className="max-w-[16ch] text-[42px] font-bold leading-[1.0] tracking-[-0.03em] md:text-[68px]"
+          initial="hidden"
+          animate="show"
+          variants={container}
+          className="font-extrabold uppercase leading-[0.84] tracking-[-0.035em] text-ink text-[clamp(3.4rem,12.5vw,12rem)]"
         >
-          <span className="flex flex-wrap justify-center gap-x-4 gap-y-1">
-            {words.map((w, i) => (
-              <motion.span
-                key={`${w}-${i}`}
-                className="inline-block cursor-default text-lime"
-                whileHover={{ y: -9, scale: 1.06, rotate: i % 2 ? 2.5 : -2.5, color: '#E4EC8E' }}
-                transition={{ type: 'spring', stiffness: 320, damping: 13 }}
-              >
-                {w}
+          {LINES.map((l) => (
+            <span key={l} className="block overflow-hidden">
+              <motion.span variants={line} className="block">
+                {l}
               </motion.span>
-            ))}
-          </span>
-          <span className="mt-2 block text-[30px] font-bold leading-[1.06] text-white/35 md:text-[46px]">
-            {HERO.headline[1]}
-          </span>
+            </span>
+          ))}
         </motion.h1>
 
-        <motion.p
-          variants={item}
-          className="mt-7 max-w-xl text-[16.5px] leading-relaxed text-white/60 md:text-[18px]"
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{ show: { transition: { delayChildren: 0.5, staggerChildren: 0.1 } } }}
+          className="mt-9 flex flex-col gap-6 md:mt-12 md:flex-row md:items-center md:justify-between"
         >
-          {HERO.sub}
-        </motion.p>
+          <motion.p variants={fade} className="max-w-md text-[16px] font-medium leading-relaxed text-ink/70 md:text-[18px]">
+            One system that gets you found on Google, books the job, and keeps
+            customers coming back — without you chasing any of it.
+          </motion.p>
 
-        <motion.div variants={item} className="mt-10 w-full sm:w-auto">
-          <CTAPair size="lg" tone="onDark" />
+          <motion.div variants={fade} className="flex-none">
+            <CTAPair size="lg" align="left" />
+          </motion.div>
         </motion.div>
-
-        {/* Promise bar — de-risks the ask, restyled for the dark ground. */}
-        <motion.ul
-          variants={item}
-          className="mt-12 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center"
-        >
-          {HERO.promises.map((p, i) => (
-            <li key={p.label} className="flex items-center gap-3">
-              {i > 0 && <span className="hidden h-8 w-px bg-white/12 sm:block" />}
-              <span className="flex w-full items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-left sm:w-auto sm:border-0 sm:bg-transparent sm:px-2 sm:py-0">
-                <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-lime/20 text-lime">
-                  <Check className="h-3 w-3" />
-                </span>
-                <span>
-                  <span className="block text-[13.5px] font-semibold leading-tight text-white">
-                    {p.label}
-                  </span>
-                  <span className="block text-[12.5px] leading-tight text-white/50">{p.detail}</span>
-                </span>
-              </span>
-            </li>
-          ))}
-        </motion.ul>
-      </motion.div>
+      </div>
     </section>
   )
 }
