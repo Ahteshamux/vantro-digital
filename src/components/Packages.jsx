@@ -14,15 +14,15 @@ function Tier({ tier }) {
         hidden: { opacity: 0, y: 22 },
         show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
       }}
-      // Whole-card lift: the parent scales, so every child grows with it as one
-      // unit. Transform (framer) is GPU-accelerated; the shadow deepens via a
-      // CSS transition tuned to the same 200ms ease-out so both read as one
-      // motion. `hover:z-10` keeps the lifting card above its neighbours.
-      whileHover={{ scale: 1.04 }}
+      // Lift on hover: the card rises a few px (framer y translate, GPU-
+      // accelerated) and its shadow deepens on the same 200ms ease-out, then
+      // eases back down on mouse-leave. `h-full` + the stretched grid keep all
+      // three cards the same height regardless of feature-list length.
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className={`group relative flex flex-col rounded-3xl p-7 transition-shadow duration-200 ease-out hover:z-10 hover:shadow-card-hover md:p-8 ${
+      className={`group relative flex h-full flex-col rounded-3xl p-7 transition-shadow duration-200 ease-out hover:z-10 hover:shadow-card-hover md:p-8 ${
         featured
-          ? 'bg-charcoal text-white shadow-lift lg:-my-3 lg:py-11'
+          ? 'bg-charcoal text-white shadow-lift'
           : 'border border-card-border bg-white shadow-card'
       }`}
     >
@@ -111,7 +111,7 @@ export default function Packages() {
           whileInView="show"
           viewport={viewportOnce}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="mt-14 grid items-start gap-5 lg:grid-cols-3"
+          className="mt-14 grid items-stretch gap-5 lg:grid-cols-3"
         >
           {PACKAGES.tiers.map((tier) => (
             <Tier key={tier.name} tier={tier} />
