@@ -8,7 +8,7 @@ import { loadCalendly } from '../lib/calendly'
  * Renders nothing if no URL is passed, so a page that includes it degrades
  * cleanly while CONVERSION.calendlyUrl is still null.
  */
-export default function CalendlyInline({ url, className = '' }) {
+export default function CalendlyInline({ url, className = '', height = 660 }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -34,9 +34,9 @@ export default function CalendlyInline({ url, className = '' }) {
   return (
     <div
       ref={ref}
-      // Calendly needs a real height to render the calendar; 660px fits the
-      // month grid + time-zone row without an internal scrollbar on desktop.
-      style={{ minWidth: '320px', height: '660px' }}
+      // Calendly needs an explicit height to render. It scrolls internally
+      // when constrained, so a smaller height just shows less at once.
+      style={{ minWidth: '280px', height: `${height}px` }}
       className={`overflow-hidden rounded-2xl bg-white ${className}`}
     />
   )
