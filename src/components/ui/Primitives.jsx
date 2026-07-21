@@ -1,21 +1,10 @@
 import { motion } from 'framer-motion'
-import { Dot } from './Icons'
 
-// Small uppercase tracked pill tag: dot + label.
-export function TagPill({ children, className = '', tone = 'light' }) {
-  const tones = {
-    light: 'bg-white/70 border-card-border text-warm-grey',
-    onDark: 'bg-white/10 border-white/15 text-white/70',
-    plain: 'bg-transparent border-transparent text-warm-grey',
-  }
-  return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${tones[tone]} ${className}`}
-    >
-      <Dot className="h-1.5 w-1.5 text-lime" />
-      {children}
-    </span>
-  )
+// Eyebrow tag pills (green dot + label) were removed site-wide by request.
+// Kept as a no-op so every call site still compiles; delete the calls later
+// if you want to tidy up. Restore the pill markup here to bring them back.
+export function TagPill() {
+  return null
 }
 
 // Solid black pill CTA.
@@ -89,11 +78,7 @@ export function SectionHeading({ tag, title, subtitle, tone = 'light', className
   const subColor = tone === 'onDark' ? 'text-white/60' : 'text-warm-grey'
   return (
     <div className={`mx-auto max-w-2xl text-center ${className}`}>
-      {tag && (
-        <div className="mb-5 flex justify-center">
-          <TagPill tone={tone === 'onDark' ? 'onDark' : 'light'}>{tag}</TagPill>
-        </div>
-      )}
+      {/* Eyebrow tag pill removed site-wide. */}
       <h2 className={`text-[34px] font-bold leading-[1.1] tracking-[-0.02em] md:text-[42px] ${titleColor}`}>
         {title}
       </h2>

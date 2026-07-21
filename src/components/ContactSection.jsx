@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
 import LeadForm from './LeadForm'
-import { TagPill } from './ui/Primitives'
-import { Check } from './ui/Icons'
 import { fromLeft, fromRight, viewportOnce, EASE } from '../lib/motion'
 import { FORM, CONVERSION } from '../content/site'
 
@@ -22,41 +20,12 @@ export default function ContactSection() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
             {/* Left: pitch, what-next, FAQs */}
             <motion.div initial="hidden" whileInView="show" viewport={viewportOnce} variants={fromLeft}>
-              <TagPill>{FORM.eyebrow}</TagPill>
-              <h2 className="mt-5 text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-ink md:text-[38px]">
+              <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-ink md:text-[38px]">
                 {FORM.title}
               </h2>
               <p className="mt-4 hidden max-w-md text-[16px] leading-relaxed text-warm-grey md:block">{FORM.sub}</p>
 
-              {/* The two offers, made concrete before the form is asked for. */}
-              <motion.div
-                initial="hidden"
-                whileInView="show"
-                viewport={viewportOnce}
-                variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-                className="mt-8 grid gap-3 sm:grid-cols-2"
-              >
-                {FORM.audits.map((audit) => (
-                  <motion.div
-                    key={audit.name}
-                    variants={{
-                      hidden: { opacity: 0, y: 10 },
-                      show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
-                    }}
-                    className="rounded-2xl border border-card-border bg-white p-5"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-lime text-ink">
-                        <Check className="h-3 w-3" />
-                      </span>
-                      <span className="text-[14px] font-bold text-ink">{audit.name}</span>
-                    </div>
-                    {/* One line only — the bullet lists that used to sit here
-                        just restated this sentence and made the column run long. */}
-                    <p className="mt-2.5 text-[13px] leading-relaxed text-warm-grey">{audit.desc}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
+              {/* The two audit cards were removed by request. */}
 
               {/* What happens next */}
               <div className="mt-9 hidden md:block">
