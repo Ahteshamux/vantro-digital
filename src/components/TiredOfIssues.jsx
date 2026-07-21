@@ -13,31 +13,34 @@ import { ISSUES } from '../content/site'
  * ISSUES.slots, so only the words change.
  */
 
+// Uses the site's brand tokens (bg-ink / bg-lime) so the pills match the
+// rest of the site exactly, not a near-miss hex. Orange, sky and purple are
+// the reference accents, kept for the multi-colour "clutter".
 const COLORS = {
-  ink: 'bg-[#1E1E1C] text-white',
+  ink: 'bg-ink text-white',
   orange: 'bg-[#F0682F] text-white',
-  lime: 'bg-[#D3EB4F] text-ink',
+  lime: 'bg-lime text-ink',
   sky: 'bg-[#E3ECF7] text-ink',
   purple: 'bg-[#C9A8F0] text-ink',
 }
 
-// Container drives the stagger; each pill springs in from above its slot.
+// Container drives the stagger between pills.
 const clusterV = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.12 } },
   exit: { transition: { staggerChildren: 0.03 } },
 }
 
 function pillV(rot) {
   return {
-    // Start above the resting spot and rotated further from its final angle.
-    hidden: { opacity: 0, y: -55, rotate: rot + (rot > 90 ? 20 : 15) },
-    // Drop and settle — spring gives the overshoot-and-settle bounce.
+    // Start a little above the resting spot, rotated slightly further.
+    hidden: { opacity: 0, y: -38, rotate: rot + (rot > 90 ? 12 : 9) },
+    // Smooth ~0.5s settle — a soft ease-out curve, not a bouncy spring.
     show: {
       opacity: 1,
       y: 0,
       rotate: rot,
-      transition: { type: 'spring', stiffness: 220, damping: 13, mass: 0.7 },
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
     },
     exit: { opacity: 0, transition: { duration: 0.2 } },
   }
@@ -47,9 +50,9 @@ function Pill({ label, slot, className = '', style }) {
   return (
     <motion.div
       variants={pillV(slot.rot)}
-      whileHover={{ y: -4, rotate: 0, transition: { duration: 0.2, ease: 'easeOut' } }}
+      whileHover={{ y: -5, rotate: 0, transition: { duration: 0.2, ease: 'easeOut' } }}
       style={{ ...style, transformOrigin: 'center' }}
-      className={`w-max max-w-[240px] cursor-default select-none rounded-full px-5 py-2.5 text-[14px] font-semibold leading-tight shadow-[0_6px_18px_rgba(0,0,0,0.10)] ${COLORS[slot.color]} ${className}`}
+      className={`w-max max-w-[300px] cursor-default select-none rounded-full px-7 py-4 text-[16px] font-semibold leading-tight shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:text-[17px] ${COLORS[slot.color]} ${className}`}
     >
       {label}
     </motion.div>
@@ -119,7 +122,7 @@ export default function TiredOfIssues() {
               initial="hidden"
               animate={inView ? 'show' : 'hidden'}
               exit="exit"
-              className="relative mx-auto hidden h-[300px] w-full max-w-[900px] lg:block"
+              className="relative mx-auto hidden h-[420px] w-full max-w-[960px] lg:block"
             >
               {seg.items.map((label, i) => (
                 <Pill
