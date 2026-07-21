@@ -14,7 +14,13 @@ function Tier({ tier }) {
         hidden: { opacity: 0, y: 22 },
         show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
       }}
-      className={`relative flex flex-col rounded-3xl p-7 md:p-8 ${
+      // Whole-card lift: the parent scales, so every child grows with it as one
+      // unit. Transform (framer) is GPU-accelerated; the shadow deepens via a
+      // CSS transition tuned to the same 200ms ease-out so both read as one
+      // motion. `hover:z-10` keeps the lifting card above its neighbours.
+      whileHover={{ scale: 1.04 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+      className={`group relative flex flex-col rounded-3xl p-7 transition-shadow duration-200 ease-out hover:z-10 hover:shadow-card-hover md:p-8 ${
         featured
           ? 'bg-charcoal text-white shadow-lift lg:-my-3 lg:py-11'
           : 'border border-card-border bg-white shadow-card'
@@ -74,19 +80,19 @@ function Tier({ tier }) {
         ))}
       </ul>
 
-      <motion.a
+      {/* No own hover state — the card scale carries the feedback. The arrow
+          nudges off the CARD's group-hover so button and card move as one.
+          Button colours deliberately stay constant on hover. */}
+      <a
         href="/contact"
         onClick={goToForm}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.2, ease: EASE }}
-        className={`group mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[14.5px] font-semibold ${
-          featured ? 'bg-lime text-ink hover:brightness-105' : 'bg-ink text-white hover:bg-black'
+        className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[14.5px] font-semibold ${
+          featured ? 'bg-lime text-ink' : 'bg-ink text-white'
         }`}
       >
         {tier.cta}
-        <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-      </motion.a>
+        <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-out group-hover:translate-x-[3px]" />
+      </a>
     </motion.div>
   )
 }
