@@ -411,6 +411,30 @@ export const ISSUES = {
   resolveLine: 'One operator replaces all three — one connected system, no retainer, no ghosting, no guesswork.',
 }
 
+/**
+ * "Our services" — folder-hover card grid.
+ *
+ * PLACEHOLDER CONTENT: names use real Vantro services (so it isn't embarrassing
+ * if it ships early) and `icon` points at the existing line-icon set. Both are
+ * meant to be swapped — the final category names and hand-drawn doodle icons
+ * will be supplied separately. Edit this array to change the grid; the card
+ * component and its hover animation are content-agnostic.
+ *
+ * `icon` is one of the keys wired in OurServices.jsx (launch/pen/search/nodes).
+ */
+export const SERVICES_GRID = {
+  headline: ['Our', 'services'], // 'services' gets the hand-drawn circle
+  sub: 'Everything a small business needs to get found, convert and follow up — from one operator 🙌',
+  cards: [
+    { name: 'Website Design & Build', icon: 'launch' },
+    { name: 'Landing Pages & CRO', icon: 'pen' },
+    { name: 'SEO & Local Search', icon: 'search' },
+    { name: 'Google & Meta Ads', icon: 'nodes' },
+    { name: 'Lead Automation', icon: 'nodes' },
+    { name: 'Reviews & Reputation', icon: 'search' },
+  ],
+}
+
 export const PROBLEM = {
   tag: 'The real problem',
   headline: 'A new website didn’t fix the business.',
