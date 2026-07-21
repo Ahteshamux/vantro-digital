@@ -197,6 +197,7 @@ export const NAV = [
       { label: 'Our work', href: '/work' },
     ],
   },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -1025,6 +1026,7 @@ export const FOOTER = {
       links: [
         { label: 'About', to: '/about' },
         { label: 'Work', to: '/work' },
+        { label: 'Blog', to: '/blog' },
         { label: 'Contact', to: '/contact' },
       ],
     },

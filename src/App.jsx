@@ -9,6 +9,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import IndexPage from './pages/IndexPage'
 import SubPage from './pages/SubPage'
+import BlogIndex from './pages/BlogIndex'
+import BlogPost from './pages/BlogPost'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -29,6 +31,10 @@ export default function App() {
 
           <Route path="/industries" element={<IndexPage kind="industries" />} />
           <Route path="/industries/:slug" element={<SubPage kind="industries" />} />
+
+          {/* Blog: hub + one template-driven page per article */}
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
 
           {/* Tier deep-links land on the pricing page — the tiers live there
               together, and splitting them would weaken the comparison. */}

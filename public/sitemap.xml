@@ -121,4 +121,43 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Blog hub -->
+  <url>
+    <loc>https://vantrodigital.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Articles -->
+  <url>
+    <loc>https://vantrodigital.com/blog/marketing-agency-vs-freelancer-vs-diy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://vantrodigital.com/blog/wix-vs-custom-website</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://vantrodigital.com/blog/local-seo-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://vantrodigital.com/blog/get-more-google-reviews</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://vantrodigital.com/blog/website-that-generates-leads</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+
 </urlset>
