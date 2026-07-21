@@ -329,32 +329,86 @@ export const STATEMENT = {
  * Every right-column row is a structural fact about how we operate (from
  * brief §2 and §4), not a claim about results we haven't produced.
  */
-export const COMPARISON = {
-  tag: 'Comparison',
-  headline: ['But why would you', 'work with us?'],
-  sub: 'Most founders have already bought a redesign that didn’t change the business. Here’s what’s structurally different here.',
-  them: {
-    title: 'The typical agency',
-    items: [
-      'Hands you a pretty site, then walks away',
-      'Design and automation sold as separate projects',
-      'Account managers between you and the work',
-      'Opens with a redesign pitch, not a diagnosis',
-      'Retainer required to keep anything running',
-    ],
-  },
-  us: {
-    title: 'Vantro Digital',
-    items: [
-      'Design and automation shipped as one system',
-      'One operator accountable, start to finish',
-      'You talk to the person doing the work',
-      'Audit first — we name the leak before we quote',
-      'No retainer required, ever',
-    ],
-  },
-  footLine: 'Not sure which side your current setup sits on?',
-  footCta: 'Get a free audit',
+/**
+ * "Tired of these issues" — replaces the old two-column COMPARISON.
+ *
+ * Same job as the reference: agitate the pain of the WRONG choice before
+ * positioning us as the fix. The three tabs are the three alternatives a
+ * small-business owner actually weighs instead of us — hire an agency, hire
+ * freelancers, or do it yourself — and each shows that path's pain points.
+ *
+ * `slots` defines the layout ONCE: colour, rotation and desktop position per
+ * pill. Every tab reuses the same slots, so switching tabs keeps the exact
+ * same arrangement and only the words change — matching the reference.
+ * `segments[i].items` is aligned index-for-index to `slots` and to `tabs[i]`.
+ *
+ * Colours are intentionally the reference's palette (they read well on cream):
+ *   ink = dark, orange, lime, sky = pale blue, purple.
+ * No two spatially-overlapping slots share a colour.
+ */
+export const ISSUES = {
+  eyebrow: 'The alternatives',
+  headline: ['Tired of these', 'issues'], // second word gets the hand-drawn circle
+  tabs: ['Agencies', 'Freelancers', 'DIY'],
+
+  slots: [
+    { color: 'orange', rot: -5, left: '33%', top: 6 },
+    { color: 'ink', rot: 7, left: '7%', top: 60 },
+    { color: 'lime', rot: -8, left: '55%', top: 86 },
+    { color: 'ink', rot: 8, left: '13%', top: 116 },
+    { color: 'sky', rot: 3, left: '47%', top: 150 },
+    { color: 'lime', rot: -11, left: '26%', top: 176 },
+    { color: 'sky', rot: 2, left: '36%', top: 232 },
+    { color: 'orange', rot: -3, left: '54%', top: 232 },
+    { color: 'purple', rot: 180, left: '72%', top: 232 },
+  ],
+
+  segments: [
+    {
+      // Agencies — carries over the old COMPARISON.them pains.
+      items: [
+        'Lack of personality & attention',
+        'Slow decision-making',
+        'Lackluster delivery',
+        'Strict contracts and scopes',
+        'Stiff workflow and processes',
+        'Inconsistent team members',
+        'Limited transparency',
+        'Cookie-cutter solutions',
+        'High overhead costs',
+      ],
+    },
+    {
+      // Freelancers.
+      items: [
+        'Disappears mid-project',
+        'One skill, not the system',
+        'Juggling five other clients',
+        'No real accountability',
+        'You end up managing them',
+        'Ghosted after delivery',
+        'No process or handover',
+        'Quality swings wildly',
+        'Can’t scale with you',
+      ],
+    },
+    {
+      // DIY — doing it yourself.
+      items: [
+        'Never actually gets finished',
+        'Eats the job you actually do',
+        'Tutorials that don’t add up',
+        'Ends up looking amateur',
+        'No time to maintain it',
+        'Guessing at what converts',
+        'Tools you only half-learn',
+        'Leads still slip through',
+        'Always “next month”',
+      ],
+    },
+  ],
+
+  resolveLine: 'One operator replaces all three — one connected system, no retainer, no ghosting, no guesswork.',
 }
 
 export const PROBLEM = {

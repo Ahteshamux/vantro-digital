@@ -7,7 +7,7 @@ import StageRank from '../components/StageRank'
 import StageGrow from '../components/StageGrow'
 import StageRetain from '../components/StageRetain'
 import Process from '../components/Process'
-import Comparison from '../components/Comparison'
+import TiredOfIssues from '../components/TiredOfIssues'
 import FinalCTA from '../components/FinalCTA'
 import { PAGES, STAGES_INTRO } from '../content/site'
 
@@ -45,7 +45,7 @@ export default function HowWeWork() {
         </div>
       </section>
 
-      <Comparison />
+      <TiredOfIssues />
       <FinalCTA />
     </>
   )

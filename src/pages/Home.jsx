@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 import StatsBand from '../components/StatsBand'
 import ProblemBand from '../components/ProblemBand'
-import Comparison from '../components/Comparison'
+import TiredOfIssues from '../components/TiredOfIssues'
 import { SectionHeading, Bridge, BridgedHeading } from '../components/ui/Primitives'
 import StageDesign from '../components/StageDesign'
 import StageRank from '../components/StageRank'
@@ -29,7 +29,7 @@ export default function Home() {
       <Hero />
       <StatsBand />
       <ProblemBand />
-      <Comparison />
+      <TiredOfIssues />
 
       {/* Proof of the comparison claim, not a standalone feature list */}
       <section id="system" className="scroll-mt-24 py-16 md:py-24">

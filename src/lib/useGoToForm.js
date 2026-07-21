@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
  * Returns a click handler that scrolls to the inline lead form when the
  * current page has one, and routes to /contact when it doesn't.
  *
- * Shared components (Proof, Packages, Comparison) render on several pages —
+ * Shared components (Proof, Packages, TiredOfIssues) render on several pages —
  * only some of which include a ContactSection — so a hardcoded "#contact"
  * anchor would silently do nothing on the others.
  */
