@@ -4,6 +4,7 @@ import { ArrowRight } from './Icons'
 import { CONVERSION } from '../../content/site'
 import { EASE } from '../../lib/motion'
 import { openCalendlyPopup } from '../../lib/calendly'
+import { useMagnetic } from '../../lib/useMagnetic'
 
 /**
  * The dual-CTA unit (docs 01/02/11): never a single button.
@@ -67,11 +68,19 @@ export default function CTAPair({
   const alignment =
     align === 'left' ? 'sm:justify-start' : align === 'right' ? 'sm:justify-end' : 'sm:justify-center'
 
+  // Each button gets its own magnetic instance (independent motion values).
+  const hardMag = useMagnetic()
+  const softMag = useMagnetic()
+
   return (
     <div className={`flex flex-col items-stretch gap-3 sm:flex-row sm:items-center ${alignment} ${className}`}>
       <motion.a
+        ref={hardMag.ref}
         href={hasCalendly ? CONVERSION.calendlyUrl : '/contact'}
         onClick={onHardCta}
+        onMouseMove={hardMag.onMouseMove}
+        onMouseLeave={hardMag.onMouseLeave}
+        style={hardMag.style}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2, ease: EASE }}
@@ -82,8 +91,12 @@ export default function CTAPair({
       </motion.a>
 
       <motion.a
+        ref={softMag.ref}
         href="/contact"
         onClick={goToForm}
+        onMouseMove={softMag.onMouseMove}
+        onMouseLeave={softMag.onMouseLeave}
+        style={softMag.style}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2, ease: EASE }}
