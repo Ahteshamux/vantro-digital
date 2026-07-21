@@ -67,27 +67,8 @@ export default function TiredOfIssues() {
   return (
     <section className="py-16 md:py-24">
       <div className="container-page">
-        {/* Heading with the hand-drawn circle on the last word */}
         <h2 className="text-center text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-ink md:text-[62px]">
-          {ISSUES.headline[0]}{' '}
-          <span className="relative inline-block">
-            {ISSUES.headline[1]}
-            <svg
-              className="pointer-events-none absolute -left-7 -right-7 -top-4 -bottom-5"
-              viewBox="0 0 220 90"
-              fill="none"
-              preserveAspectRatio="none"
-              aria-hidden
-            >
-              {/* Loose, open, hand-drawn oval — starts and ends slightly apart. */}
-              <path
-                d="M150 12 C60 2 12 22 10 46 C8 74 78 86 140 84 C196 82 220 60 206 38 C196 22 150 12 120 12"
-                stroke="#D3EB4F"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
+          {ISSUES.headline[0]} {ISSUES.headline[1]}
         </h2>
 
         {/* Tab bar */}

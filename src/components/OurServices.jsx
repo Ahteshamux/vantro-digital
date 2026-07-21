@@ -58,23 +58,7 @@ export default function OurServices() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-start">
           <h2 className="text-[46px] font-bold leading-[0.98] tracking-[-0.02em] text-ink md:text-[64px]">
             <span className="block">{SERVICES_GRID.headline[0]}</span>
-            <span className="relative inline-block text-warm-grey">
-              {SERVICES_GRID.headline[1]}
-              <svg
-                className="pointer-events-none absolute -left-8 -right-8 -top-4 -bottom-5"
-                viewBox="0 0 240 96"
-                fill="none"
-                preserveAspectRatio="none"
-                aria-hidden
-              >
-                <path
-                  d="M164 14 C64 3 14 26 12 50 C10 80 86 92 152 90 C214 88 236 64 220 40 C208 22 160 13 128 14"
-                  stroke="#D4E84C"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
+            <span className="block">{SERVICES_GRID.headline[1]}</span>
           </h2>
 
           <p className="max-w-xs text-[15.5px] leading-relaxed text-warm-grey md:pt-3 md:text-right">
