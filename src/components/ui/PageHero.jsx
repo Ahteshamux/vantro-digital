@@ -14,7 +14,7 @@ const item = {
  */
 export default function PageHero({ page, showCta = true, visual = null }) {
   return (
-    <section className="border-b border-card-border/60 py-16 md:py-20">
+    <section className="border-b border-card-border/60 pb-16 pt-28 md:pb-20 md:pt-32">
       <div
         className={`container-page ${
           visual ? 'grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16' : ''

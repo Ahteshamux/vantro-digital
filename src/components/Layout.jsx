@@ -20,12 +20,12 @@ function ScrollToTop() {
  */
 export default function Layout() {
   return (
-    <div className="min-h-screen bg-beige">
+    <div id="top" className="min-h-screen bg-cream">
       <ScrollToTop />
 
-      <div id="top" className="mx-2 rounded-b-[32px] bg-cream md:mx-4">
-        <Navbar />
-      </div>
+      {/* Floating, contrast-adaptive navbar — fixed, so it overlaps the first
+          section. First sections carry enough top padding to clear it. */}
+      <Navbar />
 
       <main id="main-content" className="bg-cream">
         <Outlet />

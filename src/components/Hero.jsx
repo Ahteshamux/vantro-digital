@@ -23,7 +23,7 @@ export default function Hero() {
   const words = HERO.headline[0].split(' ') // "Build." "Rank." "Grow." "Automate."
 
   return (
-    <section className="relative overflow-hidden bg-ink pb-20 pt-16 md:pb-28 md:pt-20">
+    <section className="relative overflow-hidden bg-ink pb-20 pt-28 md:pb-28 md:pt-32">
       {/* Ambient lime glow — breathes slowly so the hero is never fully static. */}
       <motion.div
         aria-hidden
