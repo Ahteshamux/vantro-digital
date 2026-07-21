@@ -40,14 +40,15 @@ export default function Hero() {
         variants={container}
         className="container-page relative z-10 flex flex-col items-center text-center"
       >
-        {/* Eyebrow — names the exact buyer. */}
-        <motion.span
+        {/* Eyebrow — names the exact buyer. Flanked-line style, no dot/pill. */}
+        <motion.div
           variants={item}
-          className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-lime"
+          className="mb-7 flex items-center gap-3.5 text-[11.5px] font-semibold uppercase tracking-[0.2em] text-lime"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+          <span className="h-px w-7 bg-gradient-to-r from-transparent to-lime/60" />
           For $300K–$1.5M service businesses
-        </motion.span>
+          <span className="h-px w-7 bg-gradient-to-l from-transparent to-lime/60" />
+        </motion.div>
 
         <motion.h1
           variants={item}
