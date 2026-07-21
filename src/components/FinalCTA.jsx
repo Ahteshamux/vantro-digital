@@ -23,7 +23,7 @@ export default function FinalCTA() {
           whileInView="show"
           viewport={viewportOnce}
           variants={scaleIn}
-          className={`rounded-4xl bg-lime-soft px-6 py-14 md:px-14 md:py-16 ${
+          className={`rounded-4xl bg-lime px-6 py-14 md:px-14 md:py-16 ${
             hasCalendly ? 'text-center lg:text-left' : 'text-center'
           }`}
         >
