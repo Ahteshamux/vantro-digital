@@ -435,6 +435,28 @@ export const SERVICES_GRID = {
   ],
 }
 
+/**
+ * "Results that speak for themselves" — bento grid.
+ *
+ * REAL Vantro results only. The reference this is modelled on used invented
+ * client numbers ($1.5B funding, 40k traffic to Bellroy, etc.); those are that
+ * agency's fictional examples. Every figure below traces to actual work
+ * (ThePetNest, GetDentalLeads) or an honest capability metric — never a
+ * fabricated client claim. `kind: 'chart'` cards show a directional lime graph
+ * for a trend that genuinely happened; `kind: 'stat'` cards are a number.
+ */
+export const RESULTS = {
+  headline: ['Results that', 'speak for', 'themselves'], // last word circled
+  cards: [
+    { kind: 'chart', dir: 'up', label: 'Monthly revenue after ThePetNest’s one-screen booking funnel.' },
+    { kind: 'stat', value: '7.3×', label: 'Revenue growth for ThePetNest — $10K to $73K a month.' },
+    { kind: 'stat', value: '50+', label: 'Projects delivered end to end since 2021.' },
+    { kind: 'chart', dir: 'up', label: 'Inbound leads per month after GetDentalLeads went live.' },
+    { kind: 'stat', value: '90+', label: 'Qualified leads in month one for GetDentalLeads — from zero.' },
+    { kind: 'stat', value: '30', suffix: ' days', label: 'From first audit to a live, working system.' },
+  ],
+}
+
 export const PROBLEM = {
   tag: 'The real problem',
   headline: 'A new website didn’t fix the business.',

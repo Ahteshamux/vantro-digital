@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
 import MagneticButton from '../components/ui/MagneticButton'
 import Hero from '../components/Hero'
-import StatsBand from '../components/StatsBand'
+import ResultsBento from '../components/ResultsBento'
 import ProblemBand from '../components/ProblemBand'
 import TiredOfIssues from '../components/TiredOfIssues'
 import OurServices from '../components/OurServices'
@@ -28,7 +28,6 @@ export default function Home() {
         path="/"
       />
       <Hero />
-      <StatsBand />
       <ProblemBand />
       <TiredOfIssues />
       <OurServices />
@@ -56,6 +55,7 @@ export default function Home() {
 
       <InstantResponse />
       <Proof />
+      <ResultsBento />
       <Reviews />
 
       {/* Packages teaser — full pricing lives at /packages */}
