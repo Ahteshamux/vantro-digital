@@ -61,7 +61,7 @@ export default function OurServices() {
             <span className="relative inline-block text-warm-grey">
               {SERVICES_GRID.headline[1]}
               <svg
-                className="pointer-events-none absolute -left-4 -right-5 -top-2 -bottom-2 h-[calc(100%+16px)] w-[calc(100%+36px)]"
+                className="pointer-events-none absolute -left-8 -right-8 -top-4 -bottom-5"
                 viewBox="0 0 240 96"
                 fill="none"
                 preserveAspectRatio="none"

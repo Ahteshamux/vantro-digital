@@ -73,7 +73,7 @@ export default function TiredOfIssues() {
           <span className="relative inline-block">
             {ISSUES.headline[1]}
             <svg
-              className="pointer-events-none absolute -left-3 -right-3 -top-2 -bottom-2 h-[calc(100%+16px)] w-[calc(100%+24px)]"
+              className="pointer-events-none absolute -left-7 -right-7 -top-4 -bottom-5"
               viewBox="0 0 220 90"
               fill="none"
               preserveAspectRatio="none"
