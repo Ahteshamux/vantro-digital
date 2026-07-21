@@ -352,15 +352,15 @@ export const ISSUES = {
   tabs: ['Agencies', 'Freelancers', 'DIY'],
 
   slots: [
-    { color: 'orange', rot: -5, left: '33%', top: 10 },
-    { color: 'ink', rot: 7, left: '5%', top: 92 },
-    { color: 'lime', rot: -8, left: '57%', top: 128 },
-    { color: 'ink', rot: 8, left: '12%', top: 172 },
-    { color: 'sky', rot: 3, left: '48%', top: 222 },
-    { color: 'lime', rot: -11, left: '25%', top: 258 },
-    { color: 'sky', rot: 2, left: '34%', top: 330 },
-    { color: 'orange', rot: -3, left: '53%', top: 330 },
-    { color: 'purple', rot: 180, left: '72%', top: 330 },
+    { color: 'lime', rot: -4, left: '31%', top: 10 },
+    { color: 'ink', rot: 6, left: '6%', top: 96 },
+    { color: 'white', rot: -7, left: '67%', top: 150 },
+    { color: 'ink', rot: 7, left: '12%', top: 176 },
+    { color: 'limeSoft', rot: 3, left: '52%', top: 252 },
+    { color: 'lime', rot: -9, left: '19%', top: 266 },
+    { color: 'white', rot: 2, left: '10%', top: 366 },
+    { color: 'ink', rot: -3, left: '41%', top: 372 },
+    { color: 'limeSoft', rot: 180, left: '70%', top: 360 },
   ],
 
   segments: [

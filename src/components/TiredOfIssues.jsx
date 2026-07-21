@@ -13,15 +13,14 @@ import { ISSUES } from '../content/site'
  * ISSUES.slots, so only the words change.
  */
 
-// Uses the site's brand tokens (bg-ink / bg-lime) so the pills match the
-// rest of the site exactly, not a near-miss hex. Orange, sky and purple are
-// the reference accents, kept for the multi-colour "clutter".
+// Brand palette only — ink, the two limes, and white. No orange or purple:
+// the cluster reads as ours, not the reference's, while the ink/lime contrast
+// still gives the scattered pills enough variety.
 const COLORS = {
   ink: 'bg-ink text-white',
-  orange: 'bg-[#F0682F] text-white',
   lime: 'bg-lime text-ink',
-  sky: 'bg-[#E3ECF7] text-ink',
-  purple: 'bg-[#C9A8F0] text-ink',
+  limeSoft: 'bg-lime-soft text-ink',
+  white: 'bg-white text-ink border border-card-border',
 }
 
 // Container drives the stagger between pills.
@@ -52,7 +51,7 @@ function Pill({ label, slot, className = '', style }) {
       variants={pillV(slot.rot)}
       whileHover={{ y: -5, rotate: 0, transition: { duration: 0.2, ease: 'easeOut' } }}
       style={{ ...style, transformOrigin: 'center' }}
-      className={`w-max max-w-[300px] cursor-default select-none rounded-full px-7 py-4 text-[16px] font-semibold leading-tight shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:text-[17px] ${COLORS[slot.color]} ${className}`}
+      className={`w-max cursor-default select-none whitespace-nowrap rounded-full px-6 py-3.5 text-[15px] font-semibold leading-tight shadow-[0_8px_22px_rgba(0,0,0,0.12)] md:text-[16.5px] ${COLORS[slot.color]} ${className}`}
     >
       {label}
     </motion.div>
@@ -122,7 +121,7 @@ export default function TiredOfIssues() {
               initial="hidden"
               animate={inView ? 'show' : 'hidden'}
               exit="exit"
-              className="relative mx-auto hidden h-[420px] w-full max-w-[960px] lg:block"
+              className="relative mx-auto hidden h-[450px] w-full max-w-[960px] lg:block"
             >
               {seg.items.map((label, i) => (
                 <Pill
