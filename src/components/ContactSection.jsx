@@ -51,17 +51,9 @@ export default function ContactSection() {
                       </span>
                       <span className="text-[14px] font-bold text-ink">{audit.name}</span>
                     </div>
-                    <p className="mt-2.5 hidden text-[13px] leading-relaxed text-warm-grey md:block">
-                      {audit.desc}
-                    </p>
-                    <ul className="mt-3 space-y-1">
-                      {audit.points.map((p) => (
-                        <li key={p} className="flex gap-2 text-[12.5px] text-warm-grey">
-                          <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-warm-grey-light" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
+                    {/* One line only — the bullet lists that used to sit here
+                        just restated this sentence and made the column run long. */}
+                    <p className="mt-2.5 text-[13px] leading-relaxed text-warm-grey">{audit.desc}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -95,16 +87,8 @@ export default function ContactSection() {
                   ))}
                 </motion.ol>
               </div>
-
-              {/* Objection-handling FAQs at the point of highest hesitation */}
-              <div className="mt-9 hidden space-y-4 border-t border-card-border pt-7 md:block">
-                {FORM.faqs.map((f) => (
-                  <div key={f.q}>
-                    <p className="text-[14px] font-semibold text-ink">{f.q}</p>
-                    <p className="mt-1 text-[13.5px] leading-relaxed text-warm-grey">{f.a}</p>
-                  </div>
-                ))}
-              </div>
+              {/* FAQs removed from here to keep this section short and solid —
+                  FORM.faqs is still available if we want a dedicated FAQ block. */}
             </motion.div>
 
             {/* Right: the form */}
